@@ -1,0 +1,23 @@
+{
+  // Deployment config for the built vinext output.
+  //
+  // `vinext build` emits a Cloudflare Worker (dist/server/index.js) plus the
+  // static client bundle (dist/client). That is a Worker with static assets,
+  // not a plain static directory, so this is the target rather than a static
+  // host. `no_bundle` is set because the output is already bundled; the
+  // ESModule rule lets the entry import its sibling ./ssr/index.js chunk.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "steady-in-faith",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "no_bundle": true,
+  "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
+  "assets": { "directory": "dist/client" },
+  "observability": { "enabled": true },
+  "vars": {
+    // The page falls back to this exact link when the variable is absent, so a
+    // missing value can never point checkout somewhere else.
+    "CHECKOUT_URL": "https://buy.stripe.com/4gM4gz4rxfXY58b8kL9fW0M"
+  }
+}

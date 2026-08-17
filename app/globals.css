@@ -54,3 +54,79 @@ html,body{background:var(--black)}
 .faq{background:radial-gradient(circle at 80% 0%,#fff 0%,transparent 28%),linear-gradient(135deg,#faf7f1,#e8dfd3)}
 footer{border-top-color:rgba(255,248,232,.13);background:linear-gradient(180deg,#08080a,#0c0c0e);color:#8f8984}
 @media(max-width:760px){.hero-vignette{background:linear-gradient(0deg,#08080a 0%,rgba(8,8,10,.91) 40%,rgba(8,8,10,.16) 77%,rgba(0,0,0,.25) 100%),radial-gradient(circle at 65% 25%,rgba(255,248,225,.16),transparent 28%),linear-gradient(90deg,#08080aaa,transparent)}.celestial-rays{right:-55%;top:-20%;width:130vw;opacity:.22}.celestial-mist{inset:auto -20% 22% 5%;height:26%}}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Responsive hardening. Appended last so every rule above keeps its intent:
+   this only contains grid tracks, fits the hero on short screens, raises
+   micro-label sizes on touch screens and grows tap targets. No colours,
+   no typography families, no layout order changed.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* A grid item must never stretch its own track wider than the container.
+   Without this the 610px product mockup widens the column and pushes the
+   copy past the right edge on small screens. */
+.manifesto,.section-intro,.inside,.journey-heading,.weeks,.community,.faq,.ritual-list article,.inside-copy li,.community-benefits>div{min-width:0}
+.manifesto>*,.section-intro>*,.inside>*,.journey-heading>*,.weeks>*,.community>*,.faq>*{min-width:0}
+
+@media(max-width:1080px){.inside{grid-template-columns:minmax(0,1fr)}}
+
+/* Four week cards do not fit between 760px and 1080px. */
+@media(max-width:900px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr))}.weeks article:nth-child(2n){border-right:0}.weeks article:nth-child(2n+1){padding-left:0}.weeks article:nth-child(2n){padding-left:28px}}
+
+/* Touch targets on tablet, where the full navigation is still shown. */
+@media(min-width:761px){.topbar nav a{display:flex;align-items:center;min-height:44px}.topbar-cta{min-height:44px}}
+.wordmark{min-height:44px}
+
+/* Micro-labels are readable on touch screens. Desktop above 1080px keeps the
+   original 7-9px scale the design was drawn at. */
+@media(max-width:1080px){
+  .hero-label{font-size:11px}
+  .hero-price small{font-size:11px}
+  .hero-verse span{font-size:11px}
+  .scroll-cue span{font-size:11px}
+  .hero-proof{font-size:12px}
+  .weeks article>small{font-size:11px}
+  .community-tags span{font-size:11px}
+  .price-display small{font-size:11px}
+  .offer-includes{font-size:12px}
+  footer p{font-size:11px}
+  footer>span{font-size:11px}
+}
+
+@media(max-width:760px){
+  /* Single column below the tablet breakpoint (re-asserted after the 900px rule). */
+  .weeks{grid-template-columns:minmax(0,1fr)}
+  .weeks article,.weeks article+article,.weeks article:nth-child(2n),.weeks article:nth-child(2n+1){padding:24px 0;border-right:0}
+  /* Portrait screens crop the 16:9 hero hard. Anchor on the face instead of the
+     hair, and reserve a clear band above the headline so the eyes and the
+     celestial light stay visible and the type never sits on the face. */
+  .hero{min-height:720px;padding:300px 20px 72px;align-items:flex-start}
+  .hero-image{object-position:77% center}
+  .hero-vignette{background:linear-gradient(0deg,#08080a 0%,#08080a 30%,rgba(8,8,10,.90) 50%,rgba(8,8,10,.34) 72%,rgba(8,8,10,.06) 89%,transparent 100%),radial-gradient(circle at 72% 16%,rgba(255,248,225,.20),transparent 38%)}
+  .hero-label{margin-bottom:16px}
+  .hero-content>p{margin:20px 0}
+  .hero-action{gap:16px}
+  .hero-proof{margin-top:20px}
+  .signal-strip span{font-size:10px}
+  .faq summary{font-size:16px}
+}
+
+/* The product mockup is 610px wide and only scaled visually, so the scale has
+   to shrink with the viewport or its edges get clipped. */
+@media(max-width:560px){.product-stage{transform:scale(.62);margin-bottom:-175px}}
+
+/* Keep the product mockup inside the viewport instead of clipping its edges. */
+@media(max-width:420px){.hero-label{font-size:11px}.product-stage{transform:scale(.56);margin-bottom:-190px}
+  /* Narrower screens crop more of the portrait, so the clear band can be
+     shorter without the headline reaching the face. */
+  .hero{padding-top:250px}
+  .hero-content>p{margin:16px 0}
+  /* Three stat columns cannot hold "COMMUNITY DAYS INCLUDED" beside the number
+     at this width, so stack each stat instead of clipping the word. */
+  .signal-strip{gap:10px;padding:20px 12px;align-items:start}
+  .signal-strip>div{flex-direction:column;align-items:center;gap:4px;text-align:center;flex:1}
+  .signal-strip b{font-size:28px;line-height:1}
+  .signal-strip span{max-width:none;font-size:10px}
+  .signal-strip>i{height:56px;align-self:center}
+}
+@media(max-width:360px){.product-stage{transform:scale(.5);margin-bottom:-205px}.hero h1{font-size:48px}}

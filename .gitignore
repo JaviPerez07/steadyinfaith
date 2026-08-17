@@ -40,3 +40,8 @@ next-env.d.ts
 /.sites-runtime/
 /outputs/
 /work/
+
+# next/font build cache. It stores absolute paths for the machine that produced
+# it, and the build only rewrites them to /assets/_vinext_fonts/... when they
+# match the current project root. Committing it ships dead font URLs.
+/.vinext/

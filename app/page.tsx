@@ -8,8 +8,10 @@ const Check = () => (
   <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m3.5 10.5 4 4 9-9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
 );
 
-function BuyButton({ children = "BEGIN THE RESET" }: { children?: React.ReactNode }) {
-  return <a className="buy-button" href={checkoutUrl} aria-label="Buy The 30-Day Faith Reset for 9 dollars"><span>{children}</span><Arrow /></a>;
+// The accessible name has to start with the visible text, or voice-control users
+// cannot activate the button by reading it out loud.
+function BuyButton({ children = "BEGIN THE RESET" }: { children?: string }) {
+  return <a className="buy-button" href={checkoutUrl} aria-label={`${children} — one-time payment of 9 dollars`}><span>{children}</span><Arrow /></a>;
 }
 
 export default function Home() {
@@ -32,7 +34,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <img className="hero-image" src="/faith-reset-jesus-hero-celestial.webp" alt="" />
+        <img className="hero-image" src="/faith-reset-jesus-hero-celestial.webp" alt="" width={1672} height={941} fetchPriority="high" decoding="async" />
         <div className="hero-vignette" aria-hidden="true" />
         <div className="celestial-rays" aria-hidden="true" />
         <div className="celestial-mist" aria-hidden="true" />
