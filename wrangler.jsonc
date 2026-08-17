@@ -7,7 +7,7 @@
   // host. `no_bundle` is set because the output is already bundled; the
   // ESModule rule lets the entry import its sibling ./ssr/index.js chunk.
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "steady-in-faith",
+  "name": "steadyinfaith",
   "main": "dist/server/index.js",
   "compatibility_date": "2026-05-15",
   "compatibility_flags": ["nodejs_compat"],
