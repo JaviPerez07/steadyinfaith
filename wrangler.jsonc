@@ -10,7 +10,9 @@
   "name": "steadyinfaith",
   "main": "dist/server/index.js",
   "compatibility_date": "2026-05-15",
-  "compatibility_flags": ["nodejs_compat"],
+  // nodejs_compat is deliberately NOT listed here. The entry imports
+  // node:async_hooks, so Wrangler adds the flag itself; declaring it as well
+  // makes the upload fail with "Compatibility flag specified multiple times".
   "no_bundle": true,
   "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
   "assets": { "directory": "dist/client" },
