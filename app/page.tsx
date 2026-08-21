@@ -1,4 +1,4 @@
-const checkoutUrl = process.env.CHECKOUT_URL || "https://buy.stripe.com/4gM4gz4rxfXY58b8kL9fW0M";
+const communityUrl = "https://www.skool.com/steady-in-faith-9349";
 
 const Arrow = () => (
   <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -10,8 +10,8 @@ const Check = () => (
 
 // The accessible name has to start with the visible text, or voice-control users
 // cannot activate the button by reading it out loud.
-function BuyButton({ children = "BEGIN THE RESET" }: { children?: string }) {
-  return <a className="buy-button" href={checkoutUrl} aria-label={`${children} — one-time payment of 9 dollars`}><span>{children}</span><Arrow /></a>;
+function JoinButton({ children = "BEGIN FREE" }: { children?: string }) {
+  return <a className="buy-button" href={communityUrl} aria-label={`${children} — join Steady in Faith for free`}><span>{children}</span><Arrow /></a>;
 }
 
 export default function Home() {
@@ -29,8 +29,8 @@ export default function Home() {
           <span className="cross-mark" aria-hidden="true" />
           <span>STEADY<br /><b>IN FAITH</b></span>
         </a>
-        <nav aria-label="Main navigation"><a href="#method">THE METHOD</a><a href="#inside">WHAT YOU GET</a><a href="#community">90-DAY COMMUNITY</a></nav>
-        <a className="topbar-cta" href={checkoutUrl}>START FOR $9 <Arrow /></a>
+        <nav aria-label="Main navigation"><a href="#method">THE METHOD</a><a href="#inside">WHAT YOU GET</a><a href="#community">COMMUNITY</a></nav>
+        <a className="topbar-cta" href={communityUrl} aria-label="BEGIN FREE — join Steady in Faith for free">BEGIN FREE <Arrow /></a>
       </header>
 
       <section className="hero" id="top">
@@ -46,10 +46,9 @@ export default function Home() {
           <h1><span>30 DAYS TO</span><span>REBUILD YOUR</span><strong>WALK WITH JESUS.</strong></h1>
           <p>You do not need another burst of motivation. You need a daily rhythm centered on Jesus Christ—Scripture, reflection, prayer and action—in just ten intentional minutes.</p>
           <div className="hero-action">
-            <BuyButton />
-            <div className="hero-price"><span>$17</span><b>$9</b><small>FOUNDING PRICE · ONE TIME</small></div>
+            <JoinButton>BEGIN — IT&apos;S FREE</JoinButton>
           </div>
-          <div className="hero-proof"><span><Check /> Instant digital access</span><span><Check /> 90 days in the community</span><span><Check /> Lifetime access to the materials</span></div>
+          <div className="hero-proof"><span><Check /> Free community access</span><span><Check /> Complete 30-Day Faith Reset</span><span><Check /> No payment required</span></div>
         </div>
 
         <div className="hero-verse"><span>JAMES 4:8</span><p>“Draw near to God, and He will draw near to you.”</p></div>
@@ -59,7 +58,7 @@ export default function Home() {
       <section className="signal-strip" aria-label="Program facts">
         <div><b>30</b><span>GUIDED DAYS</span></div><i />
         <div><b>10</b><span>MINUTES A DAY</span></div><i />
-        <div><b>90</b><span>COMMUNITY DAYS INCLUDED</span></div>
+        <div><b>FREE</b><span>COMMUNITY ACCESS</span></div>
       </section>
 
       <section className="manifesto">
@@ -115,7 +114,7 @@ export default function Home() {
             <li><Check /><span><b>30 complete daily devotionals</b><small>Scripture, reflection, guided prayer and a practical action.</small></span></li>
             <li><Check /><span><b>Printable reflection journal</b><small>Prompts that turn reading into a personal conversation with God.</small></span></li>
             <li><Check /><span><b>Consistency tracker</b><small>A visible record of your return—without shame when life happens.</small></span></li>
-            <li><Check /><span><b>90 days of community access—free</b><small>Complete the journey with encouragement, prayer and honest discussion centered on Jesus Christ.</small></span></li>
+            <li><Check /><span><b>Free community access</b><small>Complete the journey with encouragement, prayer and honest discussion centered on Jesus Christ.</small></span></li>
           </ul>
         </div>
       </section>
@@ -135,29 +134,28 @@ export default function Home() {
       <section className="community" id="community">
         <div className="community-rings" aria-hidden="true"><i /><i /><i /><b>†</b></div>
         <div className="community-copy">
-          <span>05 / YOUR 90-DAY COMMUNITY</span>
-          <div className="community-badge"><strong>90</strong><span>DAYS<br />INCLUDED<br /><b>$0 EXTRA</b></span></div>
+          <span>05 / YOUR COMMUNITY</span>
+          <div className="community-badge"><strong>FREE</strong><span>TO JOIN<br />START<br /><b>TODAY</b></span></div>
           <h2>FOLLOW JESUS.<br />BUILD THE HABIT.<br /><em>DO IT TOGETHER.</em></h2>
-          <p>The workbook gives you the path. The Steady in Faith community helps you keep walking it. Every purchase includes <b>90 days of private community access</b> to share reflections, ask honest questions and grow alongside people choosing to follow Jesus Christ more intentionally.</p>
+          <p>The reset gives you the path. The Steady in Faith community helps you keep walking it. <b>Join free</b> to access the resources, share reflections, ask honest questions and grow alongside people choosing to follow Jesus Christ more intentionally.</p>
           <div className="community-benefits">
             <div><b>01</b><span><strong>Daily check-ins</strong><small>Turn the 30-day reset into a rhythm you actually keep.</small></span></div>
             <div><b>02</b><span><strong>Prayer &amp; honest conversation</strong><small>A respectful space for real questions—without pressure or performance.</small></span></div>
             <div><b>03</b><span><strong>Weekly Jesus-centered discussions</strong><small>Go deeper into Scripture and its application to everyday life.</small></span></div>
           </div>
-          <div className="community-tags"><span>PRIVATE COMMUNITY</span><span>90 DAYS INCLUDED</span><span>NO RECURRING CHARGE TODAY</span></div>
-          <small>Your $9 purchase is one-time. You will not be enrolled in a recurring subscription. After the included 90 days, continued community membership may be offered separately and is always optional. This community does not replace your local church.</small>
+          <div className="community-tags"><span>PRIVATE COMMUNITY</span><span>FREE TO JOIN</span><span>NO PAYMENT REQUIRED</span></div>
+          <small>The free community does not require a subscription. Optional paid experiences may be introduced later; they will always be separate and clearly marked. This community does not replace your local church.</small>
         </div>
       </section>
 
-      <section className="final-offer" id="checkout">
+      <section className="final-offer" id="join">
         <div className="offer-glow" aria-hidden="true" />
         <span className="final-cross" aria-hidden="true">†</span>
-        <p className="red-kicker">FOUNDING MEMBER PRICE</p>
+        <p className="red-kicker">START FREE TODAY</p>
         <h2>YOUR NEXT 30 DAYS<br />CAN BEGIN <em>TODAY.</em></h2>
-        <p className="offer-sub">The complete Jesus-centered reset, journal, tracker and 90 days of private community access.</p>
-        <div className="price-display"><span>$17</span><strong>$9</strong><small>USD · ONE-TIME PAYMENT</small></div>
-        <BuyButton>GET THE 30-DAY FAITH RESET</BuyButton>
-        <div className="offer-includes"><span><Check /> Instant digital materials</span><span><Check /> 90 community days included</span><span><Check /> No recurring charge today</span></div>
+        <p className="offer-sub">The complete Jesus-centered reset, journal, tracker and private community—available free inside Steady in Faith.</p>
+        <JoinButton>BEGIN THE RESET — FREE</JoinButton>
+        <div className="offer-includes"><span><Check /> Instant digital resources</span><span><Check /> Free community access</span><span><Check /> No payment required</span></div>
       </section>
 
       <section className="faq">
@@ -165,9 +163,9 @@ export default function Home() {
         <div className="faq-items">
           <details><summary>Is this tied to a specific denomination?</summary><p>No. It is Scripture-centered and designed for Christians from different church backgrounds, as well as people sincerely exploring faith in Jesus.</p></details>
           <details><summary>How much time will I need each day?</summary><p>About ten focused minutes. You can stay longer, but the program is intentionally realistic enough for busy days.</p></details>
-          <details><summary>What exactly will I receive?</summary><p>A digital 30-day Jesus-centered workbook, reflection journal, consistency tracker and 90 days of access to the private Steady in Faith community.</p></details>
-          <details><summary>How do I enter the community?</summary><p>Your purchase includes private access instructions for the Steady in Faith community. The included 90-day period begins when your community access is activated.</p></details>
-          <details><summary>Will I be charged every month?</summary><p>No. This founding offer is a single $9 payment. There is no automatic community subscription. After your included 90 days, any continued membership option will be separate, clearly priced and completely optional.</p></details>
+          <details><summary>What exactly will I receive?</summary><p>A digital 30-day Jesus-centered workbook, reflection journal, consistency tracker and access to the private Steady in Faith community.</p></details>
+          <details><summary>How do I enter the community?</summary><p>Choose any “Begin Free” button, create your free Skool account if needed and join Steady in Faith. The resources are available inside the community.</p></details>
+          <details><summary>Will I be charged every month?</summary><p>No. Joining Steady in Faith and beginning the 30-Day Faith Reset are free, and no payment details are required. Any optional paid experience introduced later will be separate and clearly marked.</p></details>
           <details><summary>Does this replace church, pastoral care or therapy?</summary><p>No. It is a personal faith-building resource and peer community—not a church, counseling service or medical treatment.</p></details>
         </div>
       </section>

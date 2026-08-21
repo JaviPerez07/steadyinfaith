@@ -9,7 +9,7 @@ const cormorant = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["
 const siteUrl = "https://joinsteadyinfaith.com";
 const title = "The 30-Day Faith Reset";
 const description =
-  "Build a consistent daily walk with Jesus Christ in 10 intentional minutes a day—with 90 days of private community access included.";
+  "Begin the free 30-Day Faith Reset and build a consistent daily walk with Jesus Christ in 10 intentional minutes a day.";
 
 // No metadataBase on purpose: it would also rewrite the icon href to an absolute
 // joinsteadyinfaith.com URL, which fails on preview and *.workers.dev origins.

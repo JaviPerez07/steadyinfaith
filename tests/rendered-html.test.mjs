@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-const CHECKOUT_URL = "https://buy.stripe.com/4gM4gz4rxfXY58b8kL9fW0M";
+const COMMUNITY_URL = "https://www.skool.com/steady-in-faith-9349";
 
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -28,22 +28,28 @@ test("declares English as the document language", async () => {
   assert.match(html, /<html[^>]*\blang=["']en["']/i);
 });
 
-test("points every checkout link at the Stripe payment link", async () => {
+test("points every external CTA at the free Skool community", async () => {
   const { html } = await render();
-  const hrefs = [...html.matchAll(/href="(https:\/\/buy\.stripe\.com[^"]*)"/g)].map((m) => m[1]);
-  assert.ok(hrefs.length >= 3, `expected at least 3 checkout links, found ${hrefs.length}`);
+  const hrefs = [...html.matchAll(/<a\b[^>]*href="(https:\/\/[^"]*)"/g)].map((m) => m[1]);
+  assert.ok(hrefs.length >= 3, `expected at least 3 external CTAs, found ${hrefs.length}`);
   for (const href of hrefs) {
-    assert.equal(href, CHECKOUT_URL);
+    assert.equal(href, COMMUNITY_URL);
   }
 });
 
-test("states the offer: $17 struck through, $9 now, one-time, 90 community days", async () => {
+test("states that the reset and community are free", async () => {
   const { html } = await render();
-  assert.match(html, /\$17/);
-  assert.match(html, /\$9/);
-  assert.match(html, /ONE-TIME PAYMENT/i);
-  assert.match(html, /90 days of private community access/i);
-  assert.match(html, /You will not be enrolled in a recurring subscription/i);
+  assert.match(html, /BEGIN FREE/i);
+  assert.match(html, /BEGIN THE RESET — FREE/i);
+  assert.match(html, /Free community access/i);
+  assert.match(html, /No payment required/i);
+});
+
+test("does not revive the retired paid offer", async () => {
+  const { html } = await render();
+  assert.doesNotMatch(html, /buy\.stripe\.com/i);
+  assert.doesNotMatch(html, /\$(?:9|17)\b/);
+  assert.doesNotMatch(html, /one[- ]time|founding|90 days/i);
 });
 
 test("does not ship the preview-only build marker", async () => {

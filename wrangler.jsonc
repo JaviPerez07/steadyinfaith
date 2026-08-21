@@ -16,10 +16,5 @@
   "no_bundle": true,
   "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
   "assets": { "directory": "dist/client" },
-  "observability": { "enabled": true },
-  "vars": {
-    // The page falls back to this exact link when the variable is absent, so a
-    // missing value can never point checkout somewhere else.
-    "CHECKOUT_URL": "https://buy.stripe.com/4gM4gz4rxfXY58b8kL9fW0M"
-  }
+  "observability": { "enabled": true }
 }

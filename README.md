@@ -16,7 +16,7 @@ npm run build
 ```
 
 - Node.js: 22.13 or newer
-- Checkout: Stripe Payment Link configured in `app/page.tsx`
+- Primary CTA: free Steady in Faith community on Skool, configured in `app/page.tsx`
 - Responsive layouts: desktop, tablet, and mobile breakpoints are defined in `app/globals.css`
 - Web-optimized celestial imagery is included in `public/`
 - Primary deployment target: Cloudflare (Vinext / Vite)
