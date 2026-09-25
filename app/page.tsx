@@ -30,7 +30,7 @@ export default function Home() {
           <span>STEADY<br /><b>IN FAITH</b></span>
         </a>
         <nav aria-label="Main navigation"><a href="#method">THE METHOD</a><a href="#inside">WHAT YOU GET</a><a href="#community">COMMUNITY</a></nav>
-        <a className="topbar-cta" href={communityUrl} aria-label="BEGIN FREE — join Steady in Faith for free">BEGIN FREE <Arrow /></a>
+        <a className="topbar-cta" href="#interactive-reset">NEW RESET · $14 <Arrow /></a>
       </header>
 
       <section className="hero" id="top">
@@ -46,13 +46,32 @@ export default function Home() {
           <h1><span>30 DAYS TO</span><span>REBUILD YOUR</span><strong>WALK WITH JESUS.</strong></h1>
           <p>You do not need another burst of motivation. You need a daily rhythm centered on Jesus Christ—Scripture, reflection, prayer and action—in just ten intentional minutes.</p>
           <div className="hero-action">
-            <JoinButton>BEGIN — IT&apos;S FREE</JoinButton>
+            <a className="buy-button" href="#interactive-reset"><span>EXPLORE THE NEW RESET — <s>$20</s> $14</span><Arrow /></a>
+            <p className="launch-note">Coming soon · $20 planned regular price · $14 USD at launch</p>
+            <a className="free-reset-link" href={communityUrl}>Looking for the free Reset? Begin here <Arrow /></a>
           </div>
-          <div className="hero-proof"><span><Check /> Free community access</span><span><Check /> Complete 30-Day Faith Reset</span><span><Check /> No payment required</span></div>
+          <div className="hero-proof"><span><Check /> Original Reset still free</span><span><Check /> Free Skool community</span></div>
         </div>
 
         <div className="hero-verse"><span>JAMES 4:8</span><p>“Draw near to God, and He will draw near to you.”</p></div>
         <div className="scroll-cue"><i /><span>SCROLL TO BEGIN</span></div>
+      </section>
+
+      <section className="interactive-offer" id="interactive-reset" aria-labelledby="interactive-title">
+        <div>
+          <p className="red-kicker">NEW INTERACTIVE EDITION · COMING SOON</p>
+          <h2 id="interactive-title">A small purpose.<br /><em>Every day with God.</em></h2>
+          <p>A new 30-day companion is in preparation: daily Scripture, guided prayer, personal reflections and one practical act of faith each day.</p>
+          <p>This is a separate edition. The original Faith Reset and our Skool community remain free.</p>
+        </div>
+        <div className="interactive-price-card">
+          <p>Planned regular price <s>$20</s></p>
+          <strong>$14 <span>USD launch price</span></strong>
+          <p>Planned as a single purchase. No subscription.</p>
+          <button className="buy-button" type="button" disabled>INTERACTIVE RESET — $14 · COMING SOON</button>
+          <p>Not available to purchase yet. Checkout opens when the new edition is ready.</p>
+          <a className="free-reset-link" href={communityUrl}>Start the existing free Reset in Skool <Arrow /></a>
+        </div>
       </section>
 
       <section className="signal-strip" aria-label="Program facts">
@@ -163,7 +182,8 @@ export default function Home() {
         <div className="faq-items">
           <details><summary>Is this tied to a specific denomination?</summary><p>No. It is Scripture-centered and designed for Christians from different church backgrounds, as well as people sincerely exploring faith in Jesus.</p></details>
           <details><summary>How much time will I need each day?</summary><p>About ten focused minutes. You can stay longer, but the program is intentionally realistic enough for busy days.</p></details>
-          <details><summary>What exactly will I receive?</summary><p>A digital 30-day Jesus-centered workbook, reflection journal, consistency tracker and access to the private Steady in Faith community.</p></details>
+          <details><summary>What is the new $14 edition?</summary><p>A separate interactive 30-day resource currently in development. The planned regular price is $20, with a $14 USD launch price. Sales have not opened. The existing free Reset remains available in Skool; the paid edition will not require a community subscription.</p></details>
+          <details><summary>What will I receive with the free Reset?</summary><p>A digital 30-day Jesus-centered workbook, reflection journal, consistency tracker and access to the private Steady in Faith community.</p></details>
           <details><summary>How do I enter the community?</summary><p>Choose any “Begin Free” button, create your free Skool account if needed and join Steady in Faith. The resources are available inside the community.</p></details>
           <details><summary>Will I be charged every month?</summary><p>No. Joining Steady in Faith and beginning the 30-Day Faith Reset are free, and no payment details are required. Any optional paid experience introduced later will be separate and clearly marked.</p></details>
           <details><summary>Does this replace church, pastoral care or therapy?</summary><p>No. It is a personal faith-building resource and peer community—not a church, counseling service or medical treatment.</p></details>

@@ -31,25 +31,27 @@ test("declares English as the document language", async () => {
 test("points every external CTA at the free Skool community", async () => {
   const { html } = await render();
   const hrefs = [...html.matchAll(/<a\b[^>]*href="(https:\/\/[^"]*)"/g)].map((m) => m[1]);
-  assert.ok(hrefs.length >= 3, `expected at least 3 external CTAs, found ${hrefs.length}`);
+  assert.ok(hrefs.length >= 2, `expected at least 2 external CTAs, found ${hrefs.length}`);
   for (const href of hrefs) {
     assert.equal(href, COMMUNITY_URL);
   }
 });
 
-test("states that the reset and community are free", async () => {
+test("keeps the free Reset and marks the paid edition as unavailable", async () => {
   const { html } = await render();
-  assert.match(html, /BEGIN FREE/i);
   assert.match(html, /BEGIN THE RESET — FREE/i);
-  assert.match(html, /Free community access/i);
-  assert.match(html, /No payment required/i);
+  assert.match(html, /Planned regular price/);
+  assert.match(html, /<s>\$20<\/s>/);
+  assert.match(html, /\$14/);
+  assert.match(html, /<button[^>]*disabled/);
+  assert.match(html, /Not available to purchase yet/);
 });
 
 test("does not revive the retired paid offer", async () => {
   const { html } = await render();
   assert.doesNotMatch(html, /buy\.stripe\.com/i);
   assert.doesNotMatch(html, /\$(?:9|17)\b/);
-  assert.doesNotMatch(html, /one[- ]time|founding|90 days/i);
+  assert.doesNotMatch(html, /founding|90 days/i);
 });
 
 test("does not ship the preview-only build marker", async () => {

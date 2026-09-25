@@ -130,3 +130,11 @@ footer{border-top-color:rgba(255,248,232,.13);background:linear-gradient(180deg,
   .signal-strip>i{height:56px;align-self:center}
 }
 @media(max-width:360px){.product-stage{transform:scale(.5);margin-bottom:-205px}.hero h1{font-size:48px}}
+
+/* Separate upcoming interactive edition from the existing free offer. */
+.hero-action{flex-wrap:wrap}.hero-action .launch-note{flex-basis:100%;font-size:14px;line-height:1.5;margin:0;color:#e0d8d0}
+.free-reset-link{display:inline-flex;align-items:center;gap:8px;text-decoration:underline;text-underline-offset:4px;font-size:16px;line-height:1.5}.free-reset-link svg{width:20px;height:20px;flex-shrink:0}
+.interactive-offer{padding:80px max(24px,calc((100vw - 1200px)/2));display:grid;grid-template-columns:1.1fr 1fr;gap:48px;background:#121013;scroll-margin-top:24px}
+.interactive-offer h2{font-size:clamp(32px,4vw,54px);line-height:1.12;margin:16px 0 24px}.interactive-offer p{font-size:16px;line-height:1.7;color:#e0d8d0;margin:16px 0}
+.interactive-price-card{padding:28px;border:1px solid #765f43;border-radius:8px;background:#1b1718}.interactive-price-card>strong{font-size:56px;color:#fff}.interactive-price-card>strong span{font-size:16px;font-weight:400}.interactive-price-card s{margin-left:8px}.interactive-price-card .buy-button{width:100%;white-space:normal;line-height:1.5;cursor:not-allowed;opacity:.7;font-size:15px;min-height:56px}
+@media(max-width:760px){.interactive-offer{grid-template-columns:1fr;padding:48px 20px;gap:24px}.interactive-price-card{padding:22px}.hero-action .buy-button{white-space:normal;line-height:1.5;font-size:16px}.topbar-cta{white-space:nowrap}}
