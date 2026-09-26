@@ -1,0 +1,34 @@
+{
+  "name": "steady-reset-delivery",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-25",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "joinsteadyinfaith.com/reset*",
+      "zone_name": "joinsteadyinfaith.com"
+    }
+  ],
+  "assets": {
+    "directory": "../.private-reset",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "steady-reset-access",
+      "database_id": "42fe17f7-56c6-495b-a2bc-77ff2a1c24a9",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "SALES_ENABLED": "true",
+    "STRIPE_LIVE_MODE": "true",
+    "STRIPE_PAYMENT_LINK_ID": "plink_1UJbq9E2RGgqV82nUM5HRIR6",
+    "PAYMENT_LINK_URL": "https://buy.stripe.com/6oU00jf6b278gQTdF59fW0S"
+  },
+  "observability": {
+    "enabled": false
+  }
+}

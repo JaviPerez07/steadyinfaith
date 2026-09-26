@@ -37,14 +37,14 @@ test("points every external CTA at the free Skool community", async () => {
   }
 });
 
-test("keeps the free Reset and marks the paid edition as unavailable", async () => {
+test("keeps the free Reset and links the paid edition to protected checkout", async () => {
   const { html } = await render();
   assert.match(html, /BEGIN THE RESET — FREE/i);
   assert.match(html, /Planned regular price/);
   assert.match(html, /<s>\$20<\/s>/);
   assert.match(html, /\$14/);
-  assert.match(html, /<button[^>]*disabled/);
-  assert.match(html, /Not available to purchase yet/);
+  assert.match(html, /href="\/reset\/checkout"/);
+  assert.match(html, /Access opens after payment/);
 });
 
 test("does not revive the retired paid offer", async () => {

@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS orders (
+ session_hash TEXT PRIMARY KEY,
+ payment_intent TEXT NOT NULL,
+ token_hash TEXT UNIQUE,
+ created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS revoked_payments (payment_intent TEXT PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS webhook_events (id TEXT PRIMARY KEY, received_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS attempts (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires INTEGER NOT NULL);

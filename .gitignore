@@ -45,3 +45,8 @@ next-env.d.ts
 # it, and the build only rewrites them to /assets/_vinext_fonts/... when they
 # match the current project root. Committing it ships dead font URLs.
 /.vinext/
+
+# Paid product files are never committed or served as public landing assets.
+/.private-reset/
+
+/.private-reset-webhook-secret
